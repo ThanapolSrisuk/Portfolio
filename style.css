@@ -1,0 +1,253 @@
+/* ตั้งค่าพื้นฐาน */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Navbar สไตล์ Pop-art */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff00ff; /* สีชมพูบานเย็น */
+    padding: 15px 30px;
+    color: white;
+    border-bottom: 4px solid #000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px #000;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #ffff00;
+}
+
+.cart {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.badge {
+    background-color: #ffff00;
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 2px solid #000;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #00ffff; /* สีฟ้าสว่าง */
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 4px solid #000;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px #ff00ff;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ปุ่มทั่วไป */
+button {
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
+    transition: transform 0.1s;
+}
+
+button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+.btn-primary {
+    background-color: #ffff00;
+    color: #000;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+}
+
+/* สินค้า */
+.section {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.product-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background: white;
+    padding: 15px;
+    border: 3px solid #000;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #000;
+    margin-bottom: 15px;
+}
+
+.rating {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff00ff;
+    margin-bottom: 15px;
+}
+
+.btn-add-cart {
+    background-color: #00ffff;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ออเดอร์และยกเลิกสินค้า */
+.bg-light {
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.order-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 20px;
+    border: 2px dashed #ff00ff;
+    border-radius: 10px;
+}
+
+.status-pending {
+    color: #ff9900;
+    font-weight: bold;
+}
+
+.btn-cancel {
+    background-color: #ff4444;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+/* Chat Widget */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chat-toggle {
+    background-color: #ff00ff;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+.chat-box {
+    display: none; /* ซ่อนไว้ก่อน */
+    width: 300px;
+    background: white;
+    border: 3px solid #000;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.chat-header {
+    background-color: #ff00ff;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #000;
+}
+
+.chat-body {
+    padding: 15px;
+    height: 200px;
+    background: #f4f4f9;
+}
+
+.admin-msg {
+    background: #00ffff;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    display: inline-block;
+}
+
+.chat-footer {
+    display: flex;
+    border-top: 2px solid #000;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.chat-footer button {
+    background: #ffff00;
+    border: none;
+    border-left: 2px solid #000;
+    padding: 0 15px;
+    box-shadow: none;
+    border-radius: 0;
+}

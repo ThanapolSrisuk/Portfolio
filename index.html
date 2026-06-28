@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แฟชั่นโหดๆ ✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">แฟชั่นโหดๆ ✨</div>
+        <div class="nav-links">
+            <a href="#">หน้าแรก</a>
+            <a href="#products">สินค้าใหม่</a>
+            <a href="#orders">ออเดอร์ของฉัน</a>
+        </div>
+        <div class="cart" onclick="openCart()">
+            🛒 ตะกร้า <span id="cart-count" class="badge">0</span>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>มาซื้อเสื้อผ้าโหดๆ</h1>
+            <p>คอลเลกชันใหม่ล่าสุด ส่งฟรีทั่วประเทศ</p>
+            <button class="btn-primary">ช้อปเลย 🛍️</button>
+        </div>
+    </header>
+
+    <section id="products" class="section">
+        <h2>🔥 ไอเทมฮิตติดเทรนด์</h2>
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="https://placehold.co/300x300/ff00ff/ffffff?text=Crop+Top" alt="เสื้อครอป">
+                <h3>เสื้อครอปสีสดใส</h3>
+                <div class="rating">⭐⭐⭐⭐⭐ (24 รีวิว)</div>
+                <p class="price">390 บาท</p>
+                <button class="btn-add-cart" onclick="addToCart('เสื้อครอปสีสดใส', 390)">เพิ่มลงตะกร้า</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://placehold.co/300x300/00ffff/000000?text=Baggy+Pants" alt="กางเกงคาร์โก้">
+                <h3>กางเกงคาร์โก้ Y2K</h3>
+                <div class="rating">⭐⭐⭐⭐ (18 รีวิว)</div>
+                <p class="price">590 บาท</p>
+                <button class="btn-add-cart" onclick="addToCart('กางเกงคาร์โก้ Y2K', 590)">เพิ่มลงตะกร้า</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://placehold.co/300x300/ffff00/000000?text=Sneakers" alt="รองเท้าผ้าใบ">
+                <h3>รองเท้าผ้าใบสุดป๊อป</h3>
+                <div class="rating">⭐⭐⭐⭐⭐ (50 รีวิว)</div>
+                <p class="price">890 บาท</p>
+                <button class="btn-add-cart" onclick="addToCart('รองเท้าผ้าใบสุดป๊อป', 890)">เพิ่มลงตะกร้า</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="orders" class="section bg-light">
+        <h2>📦 ออเดอร์ของคุณ</h2>
+        <div class="order-card" id="order-123">
+            <div class="order-info">
+                <p><strong>หมายเลขคำสั่งซื้อ:</strong> #ORD-123</p>
+                <p><strong>สินค้า:</strong> เสื้อครอปสีสดใส (1 ชิ้น)</p>
+                <p><strong>สถานะ:</strong> <span class="status-pending">กำลังเตรียมจัดส่ง</span></p>
+            </div>
+            <button class="btn-cancel" onclick="cancelOrder('order-123')">❌ ยกเลิกสินค้า</button>
+        </div>
+    </section>
+
+    <div class="chat-widget">
+        <button class="chat-toggle" onclick="toggleChat()">💬 แชทกับแอดมิน</button>
+        <div class="chat-box" id="chat-box">
+            <div class="chat-header">แอดมิน แฟชั่นโหดๆ ✨</div>
+            <div class="chat-body">
+                <p class="admin-msg">สวัสดีค่ะ! มีอะไรให้แอดมินช่วยไหมคะ? ✨</p>
+            </div>
+            <div class="chat-footer">
+                <input type="text" placeholder="พิมพ์ข้อความ...">
+                <button>ส่ง</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cart-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCart()">❌</span>
+            <h2 style="margin-bottom: 20px;">🛒 ตะกร้าสินค้าของคุณ</h2>
+            
+            <div id="cart-items">
+                <p style="color: #666; text-align: center;">ยังไม่มีสินค้าในตะกร้า</p>
+            </div>
+            
+            <hr style="margin: 20px 0; border: 1px solid #000;">
+            
+            <div class="cart-total" style="display: flex; justify-content: space-between; font-size: 20px; font-weight: bold; margin-bottom: 20px;">
+                <span>ยอดรวม:</span>
+                <span style="color: #ff00ff;"><span id="total-price">0</span> บาท</span>
+            </div>
+            
+           <button class="btn-primary" style="width: 100%;" onclick="openCheckout()">ดำเนินการชำระเงิน</button>
+        </div>
+    </div>
+<div id="checkout-modal" class="modal-overlay">
+    <div class="modal-content checkout-content">
+        <span class="close-modal" onclick="closeCheckout()">❌</span>
+        <h2>สรุปรายการสั่งซื้อ</h2>
+        
+        <div class="checkout-form">
+            <div class="input-group">
+                <label>ชื่อ-นามสกุล</label>
+                <input type="text" id="cust-name" placeholder="ระบุชื่อผู้รับ">
+            </div>
+            <div class="input-group">
+                <label>เบอร์โทรศัพท์</label>
+                <input type="tel" id="cust-phone" placeholder="08x-xxx-xxxx">
+            </div>
+            <div class="input-group">
+                <label>ที่อยู่จัดส่ง</label>
+                <textarea id="cust-address" rows="3" placeholder="ระบุที่อยู่โดยละเอียด"></textarea>
+            </div>
+            
+            <div class="payment-selection">
+                <label>วิธีการชำระเงิน</label>
+                <select id="payment-method">
+                    <option value="bank">โอนเงินผ่านธนาคาร</option>
+                    <option value="promptpay">PromptPay / QR Code</option>
+                    <option value="cod">เก็บเงินปลายทาง</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="order-summary-box">
+            <p>ยอดชำระทั้งสิ้น: <span id="checkout-total">0</span> บาท</p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+            <button class="btn-secondary" style="flex: 1;" onclick="closeCheckout()">ย้อนกลับ</button>
+            <button class="btn-primary" style="flex: 2;" onclick="confirmOrder()">ยืนยันการสั่งซื้อ</button>
+        </div>
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
